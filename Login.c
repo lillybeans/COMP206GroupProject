@@ -39,14 +39,14 @@ int Verify(char* username, char* password){
 void verifySuccess(char* username){
 	//1-Append username--DONE
 	FILE*loggedin=fopen("./loggedin.csv","a");
-	//fprintf(loggedin,"%s\n", username);
 	fputs(username,loggedin);
 	fclose(loggedin);
-	//2-Redirect to a new URL
-	printf("<meta http-equiv='refresh' content='0; url=./login.html' />");
+	//-Redirect to another page
+	printf("<meta http-equiv='refresh' content='0; url=http://cs.mcgill.ca/~zzhao8/login.html' />");
 }
 void verifyFailure(){
 	//Redirect or write to screen
+	printf("<meta http-equiv='refresh' content='0; url=http://cs.mcgill.ca/~zzhao8/error.html' />");
 }
 int main(void){
 	char* un;
