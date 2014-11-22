@@ -70,9 +70,7 @@ int main(void){
 	pw=malloc(1000);
 	input=malloc(1000);
 	printf("%s%c%c\n","Content-Type:text/html;charset=iso-8859-1",13,10);
-	printf("<title>Login Details</title>\n");
 	fgets(input,200,stdin);
-	printf("<p> Info is \n <br> %s\n",input);
 	//I now have the input as a string separated by &s and =s
 	un=strtok(input,"=");
 	un=strtok(NULL,"=");
