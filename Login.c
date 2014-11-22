@@ -68,6 +68,10 @@ int main(void){
 	un=strtok(NULL,"=");
 	pw=strtok(NULL,"=");
 	un=strtok(un,"&");
+	if(un==NULL||pw==NULL){
+		verifyFailure();
+		return 1;
+	}
 	int result=Verify(un,pw);	
 	if(result==0) verifySuccess(un);
 	else verifyFailure();
