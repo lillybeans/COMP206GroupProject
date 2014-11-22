@@ -20,9 +20,7 @@ char*  getPW(FILE* acc,char* username){
 	return tempP;
 }
 int Verify(char* username, char* password){
-//This method takes in username and password and verify them according to the .csv file
-//finding name should be done by binary search
-	FILE* accounts=fopen("./admins.csv","rt");	
+	FILE* accounts=fopen("./Members.csv","rt");	
 	char* pw;//Do not allow pw over 100 chars
 	char* tempPW=malloc(100);
 	tempPW=getPW(accounts,username);
@@ -37,9 +35,7 @@ int Verify(char* username, char* password){
 	return strcmp(pw,password);
 }
 void verifySuccess(char* username){
-	//1-Append username--DONE
 	FILE* loggedin=fopen("./loggedin.csv","a");
-	//fputs(username,loggedin);
 	fprintf(loggedin,"%s\n",username);
 	fclose(loggedin);
 	FILE* catalogue=fopen("./catalogue.html","r+wt");
@@ -54,8 +50,6 @@ void verifySuccess(char* username){
 		}	
 	}
 	fclose(catalogue);
-	//-Redirect to another page
-	//printf("<meta http-equiv='refresh' content='0; url=http://cs.mcgill.ca/~zzhao8/login.html' />");
 }
 void verifyFailure(){
 	//Redirect or write to screen
@@ -65,22 +59,18 @@ int main(void){
 	char* un;
 	char* pw;
 	char* input;
-	//int inLength=atoi(getenv("CONTENT_LENGTH"));//get from shell length of input
 	un=malloc(1000);
 	pw=malloc(1000);
 	input=malloc(1000);
 	printf("%s%c%c\n","Content-Type:text/html;charset=iso-8859-1",13,10);
 	fgets(input,200,stdin);
-	//I now have the input as a string separated by &s and =s
 	un=strtok(input,"=");
 	un=strtok(NULL,"=");
 	pw=strtok(NULL,"=");
 	un=strtok(un,"&");
-	//Now username & pw has been read.
 	int result=Verify(un,pw);	
 	if(result==0) verifySuccess(un);
 	else verifyFailure();
-
 	return 0;
 }
 
