@@ -43,11 +43,12 @@ void verifySuccess(int result){
 	}
 	else printf("Your identification did not match, please try again\n");
 }
-int main(int argc, char* argv[]){
+int main(void){
 	//1-receive 2 strings from page
 	//2-verify with verify method.
 	//..
 	/*-TESTS*/
+/*
 	char *un1="username";
 	char *pw1="password";
 	char *un2="arthur";
@@ -55,4 +56,20 @@ int main(int argc, char* argv[]){
 	int result=Verify(un2,pw2);//get result of verification
 	verifySuccess(result);
 	return 0;
+*/
+	char* fn;
+	char* ln;
+	char*data;
+	fn=malloc(1000);
+	ln=malloc(1000);
+	printf("%s%c%c\n","Content-Type:text/html;charset=iso-8859-1",13,10);
+	printf("<title>Login Details</title>\n");
+	printf("<h3>Login Details</h3>\n");
+	data=getenv("QUERY_STRING");
+	printf("<p> Info is: \n <br> %s",data);
+
+
+
+
 }
+
