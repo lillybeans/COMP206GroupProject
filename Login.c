@@ -36,27 +36,19 @@ int Verify(char* username, char* password){
 	}
 	return strcmp(pw,password);
 }
-void verifySuccess(int result){
-//Method takes in rsult of verification and act appropriately
-	if(result==0){
-		printf("<p>The username and password matched!\n");
-	}
-	else printf("<p>Your identification did not match, please try again\n");
+void verifySuccess(char* username){
+	//1-Append username--DONE
+	FILE*loggedin=fopen("./loggedin.csv","a");
+	//fprintf(loggedin,"%s\n", username);
+	fputs(username,loggedin);
+	fclose(loggedin);
+	//2-Redirect to a new URL
+	printf("<meta http-equiv='refresh' content='0; url=./login.html' />");
+}
+void verifyFailure(){
+	//Redirect or write to screen
 }
 int main(void){
-	//1-receive 2 strings from page
-	//2-verify with verify method.
-	//..
-	/*-TESTS*/
-/*
-	char *un1="username";
-	char *pw1="password";
-	char *un2="arthur";
-	char *pw2="zhao";
-	int result=Verify(un2,pw2);//get result of verification
-	verifySuccess(result);
-	return 0;
-*/
 	char* un;
 	char* pw;
 	char* input;
@@ -75,12 +67,9 @@ int main(void){
 	un=strtok(un,"&");
 	//Now username & pw has been read.
 	int result=Verify(un,pw);	
-	if(result==0){//Match
+	if(result==0) verifySuccess(un);
+	else verifyFailure();
 
-	}
-	else{//Did not match
-
-	}
 	return 0;
 }
 
