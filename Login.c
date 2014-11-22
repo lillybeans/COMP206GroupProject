@@ -46,11 +46,11 @@ void verifySuccess(char* username){
 	char* line=malloc(1000);
 	while(!feof(catalogue)){
 		fgets(line,1000,catalogue);
-		if(strcmp(line,"hi")!=0){//COMPARE to the hidden form part{
+		if(strcmp(line,"\t\t<form action=\"\">\n")!=0){//COMPARE to the hidden form part{
 			printf("%s\n",line);
 		}
 		else{
-			printf("%s %s\n",line,username);//update with hiddenbox
+			printf("%s\t\t<input type=\"hidden\" name=\"username\" value=\" %s\">\n",line,username);//update with hiddenbox
 		}	
 	}
 	fclose(catalogue);
