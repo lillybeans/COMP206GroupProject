@@ -38,11 +38,24 @@ int Verify(char* username, char* password){
 }
 void verifySuccess(char* username){
 	//1-Append username--DONE
-	FILE*loggedin=fopen("./loggedin.csv","a");
-	fputs(username,loggedin);
+	FILE* loggedin=fopen("./loggedin.csv","a");
+	//fputs(username,loggedin);
+	fprintf(loggedin,"%s\n",username);
 	fclose(loggedin);
+	FILE* catalogue=fopen("./catalogue.html","r+wt");
+	char* line=malloc(1000);
+	while(!feof(catalogue)){
+		fgets(line,1000,catalogue);
+		if(strcmp(line,"hi")!=0){//COMPARE to the hidden form part{
+			printf("%s\n",line);
+		}
+		else{
+			printf("%s %s\n",line,username);//update with hiddenbox
+		}	
+	}
+	fclose(catalogue);
 	//-Redirect to another page
-	printf("<meta http-equiv='refresh' content='0; url=http://cs.mcgill.ca/~zzhao8/login.html' />");
+	//printf("<meta http-equiv='refresh' content='0; url=http://cs.mcgill.ca/~zzhao8/login.html' />");
 }
 void verifyFailure(){
 	//Redirect or write to screen
