@@ -20,7 +20,7 @@ char*  getPW(FILE* acc,char* username){
 	return tempP;
 }
 int Verify(char* username, char* password){
-	FILE* accounts=fopen("./Members.csv","rt");	
+	FILE* accounts=fopen("./source/Members.csv","rt");	
 	char* pw;//Do not allow pw over 100 chars
 	char* tempPW=malloc(100);
 	tempPW=getPW(accounts,username);
@@ -35,7 +35,7 @@ int Verify(char* username, char* password){
 	return strcmp(pw,password);
 }
 void verifySuccess(char* username){
-	FILE* loggedin=fopen("./loggedin.csv","a");
+	FILE* loggedin=fopen("./source/loggedin.csv","a");
 	fprintf(loggedin,"%s\n",username);
 	fclose(loggedin);
 	FILE* catalogue=fopen("./catalogue.html","r+wt");
@@ -53,7 +53,7 @@ void verifySuccess(char* username){
 }
 void verifyFailure(){
 	//Redirect or write to screen
-	printf("<meta http-equiv='refresh' content='0; url=http://cs.mcgill.ca/~zzhao8/error.html' />");
+	printf("<meta http-equiv=\"refresh\" content=\"0; url=./error.html\" />");
 }
 int main(void){
 	char* un;
