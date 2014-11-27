@@ -3,23 +3,28 @@
 </head>
 <body>
 <style>
+
 body{
 color:5C604D;
 background-image: url("images/background.png");
 background-repeat:no-repeat;
 background-attachment:fixed;
 }
+
 a:link{
 color:white;
 text-decoration:none;
 }
+
 a:hover{
 color:pink;
 }
+
 a:visited{
 color:white;
 text-decoration:none;
 }
+
 #maintable{
 width:80%;
 border:0;
@@ -28,6 +33,7 @@ border-spacing:10px;
 margin-top:4%;
 margin-bottom:4%
 }
+
 td#title{
 background-color:A3AE7E;
 color:white;
@@ -37,6 +43,7 @@ padding-top:20px;
 spacing:0;
 border:1px dashed white;
 }
+
 td.menu{
 width:33%;
 text-align:center;
@@ -47,24 +54,29 @@ border:1px white dashed;
 text-decoration:none;
 color:white;
 }
+
 td.content{
 width:80%;
 background-color:pink;
 padding:10px;
 border:1px white dashed;
 }
+
 td.cupcakeImage{
 width:33%;
 text-align:center;
 }
+
 img.cupcakeImage{
 width:250;
 height:250;
 border:2px pink solid;
 }
+
 tr.description td{
 padding:10px 55px;
 }
+
 input.quantity{
 width:40px;
 text-align:right;
@@ -84,7 +96,7 @@ text-align:right;
         </tr>
 	<tr>
 	<td class=content colspan=3>
-		<form action="">
+		<form action="Purchase.py">
 		<table width=100% align=center border=0>
 
 		<tr>
@@ -97,20 +109,20 @@ text-align:right;
 		</tr>
 
 		<tr class=description>
-		<td><input type="checkbox" name="item[]" value="vanilla"><font color=F20056><b>Vanilla</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
+		<td><input type="checkbox" name="item[0]" value="vanilla"><font color=F20056><b>Vanilla</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.00
+			<br><b>Description</b>: Classic vanilla cupcake that everyone loves!
 		</td>
-		<td><input type="checkbox" name="item[]" value="chocolate"><font color=F20056><b>Chocolate</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
+		<td><input type="checkbox" name="item[1]" value="chocolate"><font color=F20056><b>Chocolate</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.01
+			<br><b>Description</b>: Deep and rich chocolate cupcake for true chocolate lovers
 		</td>
-		<td><input type="checkbox" name="item[]" value="chocolate"><font color=F20056><b>Strawberry</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
+		<td><input type="checkbox" name="item[2]" value="strawberry"><font color=F20056><b>Strawberry</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.02
+			<br><b>Description</b>: Fruity and refreshing strawberry cupcake for a perfect afternoon!
 		</td>
 		</tr>
 
@@ -124,20 +136,20 @@ text-align:right;
 		</tr>
 
 		<tr class=description>
-		<td><input type="checkbox" name="item[]" value="carrot"><font color=F20056><b>Carrot</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
+		<td><input type="checkbox" name="item[3]" value="carrot"><font color=F20056><b>Carrot</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.03
+			<br><b>Description</b>: Grandma's style carrot cupcake with cream cheese frosting.
 		</td>
-		<td><input type="checkbox" name="item[]" value="chocolateandvanilla"><font color=F20056><b>Chocolate & Vanilla</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
+		<td><input type="checkbox" name="item[4]" value="chocolateandvanilla"><font color=F20056><b>Chocolate & Vanilla</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.04
+			<br><b>Description</b>: Best of both worlds - Chocolate and Vanilla combined into one.
 		</td>
-		<td><input type="checkbox" name="item[]" value="chocolatehazelnut"><font color=F20056><b>Chocolate Hazelnut</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
+		<td><input type="checkbox" name="item[5]" value="chocolatehazelnut"><font color=F20056><b>Chocolate Hazelnut</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.05
+			<br><b>Description</b>: Chocolate blended with rich, creamy hazelnut frosting.
 		</td>
 		</tr>
 
@@ -151,20 +163,19 @@ text-align:right;
 		</tr>
 
 		<tr class=description>
-		<td><input type="checkbox" name="item[]" value="keylime"><font color=F20056><b>Keylime</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
+		<td><input type="checkbox" name="item[6]" value="keylime"><font color=F20056><b>Key Lime</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.06
+			<br><b>Description</b>: Tastes just like key lime pie! Yum!		</td>
+		<td><input type="checkbox" name="item[7]" value="peanutbutterfudge"><font color=F20056><b>Peanut Butter Fudge</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.07
+			<br><b>Description</b>: Peanut butter and fudge? Possibly the best combination ever?
 		</td>
-		<td><input type="checkbox" name="item[]" value="peanutbutterfudge"><font color=F20056><b>Peanut Butter Fudge</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
-		</td>
-		<td><input type="checkbox" name="item[]" value="chocolatemintfudge"><font color=F20056><b>Chocolate Mint Fudge</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
+		<td><input type="checkbox" name="item[8]" value="chocolatemintfudge"><font color=F20056><b>Chocolate Mint Fudge</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.08
+			<br><b>Description</b>: Chocolate mixed with the coolness of the mint, blended with rich and moist fudge.
 		</td>
 		</tr>
 
@@ -178,24 +189,25 @@ text-align:right;
 		</tr>
 
 		<tr class=description>
-		<td><input type="checkbox" name="item[]" value="coffeecookiesandcreme"><font color=F20056><b>Coffee Cookies & Creme</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
+		<td><input type="checkbox" name="item[9]" value="coffeecookiesandcreme"><font color=F20056><b>Coffee Cookies & Creme</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.09
+			<br><b>Description</b>: Cookies & Creme! With the added goodness of coffee flavour.
 		</td>
-		<td><input type="checkbox" name="item[]" value="chocolatesaltedcaramel"><font color=F20056><b>Chocolate Salted Caramel</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
+		<td><input type="checkbox" name="item[10]" value="chocolatesaltedcaramel"><font color=F20056><b>Chocolate Salted Caramel</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.10
+			<br><b>Description</b>: Perfect balance between sweet and salty.
 		</td>
-		<td><input type="checkbox" name="item[]" value="redvelvet"><font color=F20056><b>Red Velvet</b></font color>
-			<br><b>Quantity</b>: <input class=quantity name="quantity[]" value="0">
-			<br><b>Price</b>: Price goes here
-			<br><b>Description</b>: Product description goes here (from inventory file)
+		<td><input type="checkbox" name="item[11]" value="redvelvet"><font color=F20056><b>Red Velvet</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.11
+			<br><b>Description</b>: Bright and elegant, it is the one and only red velvet! 
 		</td>
 		</tr>
 
 		</table>
+		<br><center><input type=submit value="Submit"></center>
 		</form>
 	</td>
 	</tr>
