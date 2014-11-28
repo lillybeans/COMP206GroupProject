@@ -58,8 +58,6 @@ void verifySuccess(char* username){
 		}
 		else{
 			printf("%s",line);
-
-
 		}	
 	}
 	fclose(catalogue);
