@@ -1,0 +1,218 @@
+<html>
+<head>
+<title>Welcome to The Cupcake Factory</title>
+</head>
+<body>
+<style>
+
+body{
+color:5C604D;
+background-image: url("images/background.png");
+background-repeat:no-repeat;
+background-attachment:fixed;
+}
+
+a:link{
+color:white;
+text-decoration:none;
+}
+
+a:hover{
+color:pink;
+}
+
+a:visited{
+color:white;
+text-decoration:none;
+}
+
+#maintable{
+width:80%;
+border:0;
+border-collapse:separate;
+border-spacing:10px;
+margin-top:4%;
+margin-bottom:4%
+}
+
+td#title{
+background-color:A3AE7E;
+color:white;
+text-align:center;
+margin:0;
+padding-top:20px;
+spacing:0;
+border:1px dashed white;
+}
+
+td.menu{
+width:33%;
+text-align:center;
+background-color:F20056;
+padding:5px;
+margin:5px;
+border:1px white dashed;
+text-decoration:none;
+color:white;
+}
+
+td.content{
+width:80%;
+background-color:pink;
+padding:10px;
+border:1px white dashed;
+}
+
+td.cupcakeImage{
+width:33%;
+text-align:center;
+}
+
+img.cupcakeImage{
+width:250;
+height:250;
+border:2px pink solid;
+}
+
+tr.description td{
+padding:10px 55px;
+}
+
+input.quantity{
+width:40px;
+text-align:right;
+}
+</style>
+
+<center>
+<table id=maintable>
+        <tr>
+        <td id=title colspan=3><h1>Welcome to The Cupcake Factory!
+        </td>
+        </tr>
+        <tr>
+        <td class=menu><a href=home.html>home</a>
+        <td class=menu><a href=catalogue.html>catalogue</a>
+        <td class=menu><a href=login.html>login</a>
+        </tr>
+	<tr>
+	<td class=content colspan=3>
+		<form action="Purchase.py">
+		<input type="hidden" name="username" value=''>
+		<table width=100% align=center border=0>
+
+		<tr>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/vanilla.jpg>
+		</td>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/chocolate.jpg>
+		</td>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/strawberry.jpg>
+		</td>
+		</tr>
+
+		<tr class=description>
+		<td><input type="checkbox" name="item[0]" value="vanilla"><font color=F20056><b>Vanilla</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.00
+			<br><b>Description</b>: Classic vanilla cupcake that everyone loves!
+		</td>
+		<td><input type="checkbox" name="item[1]" value="chocolate"><font color=F20056><b>Chocolate</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.01
+			<br><b>Description</b>: Deep and rich chocolate cupcake for true chocolate lovers
+		</td>
+		<td><input type="checkbox" name="item[2]" value="strawberry"><font color=F20056><b>Strawberry</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.02
+			<br><b>Description</b>: Fruity and refreshing strawberry cupcake for a perfect afternoon!
+		</td>
+		</tr>
+
+		<tr>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/carrot.jpg>
+		</td>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/chocolate_and_vanilla.jpg>
+		</td>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/chocolate_hazelnut.jpg>
+		</td>
+		</tr>
+
+		<tr class=description>
+		<td><input type="checkbox" name="item[3]" value="carrot"><font color=F20056><b>Carrot</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.03
+			<br><b>Description</b>: Grandma's style carrot cupcake with cream cheese frosting.
+		</td>
+		<td><input type="checkbox" name="item[4]" value="chocolateandvanilla"><font color=F20056><b>Chocolate & Vanilla</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.04
+			<br><b>Description</b>: Best of both worlds - Chocolate and Vanilla combined into one.
+		</td>
+		<td><input type="checkbox" name="item[5]" value="chocolatehazelnut"><font color=F20056><b>Chocolate Hazelnut</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.05
+			<br><b>Description</b>: Chocolate blended with rich, creamy hazelnut frosting.
+		</td>
+		</tr>
+
+		<tr>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/key_lime.jpg>
+		</td>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/peanut_butter_fudge.jpg>
+		</td>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/CC_chocolate_mint_fudge.jpg>
+		</td>
+		</tr>
+
+		<tr class=description>
+		<td><input type="checkbox" name="item[6]" value="keylime"><font color=F20056><b>Key Lime</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.06
+			<br><b>Description</b>: Tastes just like key lime pie! Yum!		</td>
+		<td><input type="checkbox" name="item[7]" value="peanutbutterfudge"><font color=F20056><b>Peanut Butter Fudge</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.07
+			<br><b>Description</b>: Peanut butter and fudge? Possibly the best combination ever?
+		</td>
+		<td><input type="checkbox" name="item[8]" value="chocolatemintfudge"><font color=F20056><b>Chocolate Mint Fudge</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.08
+			<br><b>Description</b>: Chocolate mixed with the coolness of the mint, blended with rich and moist fudge.
+		</td>
+		</tr>
+
+		<tr>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/CC_coffee_cookies_creme.jpg>
+		</td>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/chocolate_salted_caramel.jpg>
+		</td>
+		<td class=cupcakeImage><img class=cupcakeImage src=images/red_velvet.jpg>
+		</td>
+		</tr>
+
+		<tr class=description>
+		<td><input type="checkbox" name="item[9]" value="coffeecookiesandcreme"><font color=F20056><b>Coffee Cookies & Creme</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.09
+			<br><b>Description</b>: Cookies & Creme! With the added goodness of coffee flavour.
+		</td>
+		<td><input type="checkbox" name="item[10]" value="chocolatesaltedcaramel"><font color=F20056><b>Chocolate Salted Caramel</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.10
+			<br><b>Description</b>: Perfect balance between sweet and salty.
+		</td>
+		<td><input type="checkbox" name="item[11]" value="redvelvet"><font color=F20056><b>Red Velvet</b></font color>
+			<br><b>Quantity</b>: <input class=quantity name="quantity" value="0">
+			<br><b>Price</b>: $1.11
+			<br><b>Description</b>: Bright and elegant, it is the one and only red velvet! 
+		</td>
+		</tr>
+
+		</table>
+		<br><center><input type=submit value="Submit"></center>
+		</form>
+	</td>
+	</tr>
+</table>	
+</body>
+</html>
