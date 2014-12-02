@@ -12,7 +12,6 @@ char*  getPW(FILE* acc,char* username){
 	char* userInfo=malloc(200);//records the line for a user: username,password 
 	char* tempP=malloc(100);
 	char* tempU=malloc(100);
-	tempP=NULL;
 	do{
 		fgets(userInfo,200,acc);
 		tempU=strtok(userInfo,",");
@@ -23,7 +22,8 @@ char*  getPW(FILE* acc,char* username){
 		}
 	}	
 	while(!feof(acc)&&strcmp(tempU,username)!=0);
-	return tempP;
+	return NULL;
+	//return tempP;
 }
 int userExist(FILE* acc,char* username){
 
