@@ -15,6 +15,7 @@ char*  getPW(FILE* acc,char* username){
 	do{
 		fgets(userInfo,200,acc);
 		tempU=strtok(userInfo,",");
+		tempU=strtok(NULL,",");
 		if(strcmp(tempU,username)==0){
 			tempP=strtok(NULL,",");
 			return strtok(tempP,"\n");//need to remove \n from password
