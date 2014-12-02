@@ -12,6 +12,7 @@ char*  getPW(FILE* acc,char* username){
 	char* userInfo=malloc(200);//records the line for a user: username,password 
 	char* tempP=malloc(100);
 	char* tempU=malloc(100);
+	tempP=NULL;
 	do{
 		fgets(userInfo,200,acc);
 		tempU=strtok(userInfo,",");
@@ -24,6 +25,11 @@ char*  getPW(FILE* acc,char* username){
 	while(!feof(acc)&&strcmp(tempU,username)!=0);
 	return tempP;
 }
+int userExist(FILE* acc,char* username){
+
+}
+
+
 int Verify(char* username, char* password){
 	FILE* accounts=fopen("./Members.csv","rt");	
 	char* pw;//Do not allow pw over 100 chars
