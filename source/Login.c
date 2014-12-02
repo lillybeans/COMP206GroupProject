@@ -34,8 +34,9 @@ int Verify(char* username, char* password){
 		strcpy(pw,tempPW);
 	}
 	else {
-		printf("Your username doesn't exist..");
-		exit(EXIT_FAILURE);//still need error message-username not registered
+		return 1;
+		//printf("Your username doesn't exist..");
+		//exit(EXIT_FAILURE);//still need error message-username not registered
 	}
 	return strcmp(pw,password);
 }
