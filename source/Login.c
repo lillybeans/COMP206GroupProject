@@ -25,7 +25,7 @@ char*  getPW(FILE* acc,char* username){
 	return tempP;
 }
 int Verify(char* username, char* password){
-	FILE* accounts=fopen("./source/Members.csv","rt");	
+	FILE* accounts=fopen("./Members.csv","rt");	
 	char* pw;//Do not allow pw over 100 chars
 	char* tempPW=malloc(100);
 	tempPW=getPW(accounts,username);
