@@ -7,6 +7,13 @@ my $q = new CGI;
 my $login = $q->param( 'nusrn' );
 my $file = 'Members.csv';
 
+if ($login eq "") {
+	print "Content-type: text/html\n\n";
+	print 'username field is empty.';
+	print "please retry <a href=\"register.html\">here</a>.";
+exit;
+}
+
 open(SOURCE, "<$file") or die "Error: Cannot open $file";
 
 while(my $line = <SOURCE>) {
@@ -27,13 +34,31 @@ close(SOURCE);
 my $pw = $q->param( 'npw' );
 my $confmpw = $q->param( 'cpw' );
 
+
+if ($pw eq "" || $confmpw eq "") {
+	print "Content-type: text/html\n\n";
+	print 'password fields are empty.';
+	print "please retry <a href=\"register.html\">here</a>.";
+exit;
+}
+
 if ($pw ne $confmpw) {
 	print "Content-type: text/html\n\n";
 	print 'Confirmation password does not match.';
+	print "please retry <a href=\"register.html\">here</a>.";
 exit;
 }
 
 my $name = $q->param( 'fulln' );
+
+
+if ($name  eq "") {
+	print "Content-type: text/html\n\n";
+	print 'fullname field is empty.';
+	print "please retry <a href=\"register.html\">here</a>.";
+exit;
+}
+
 my $new = join(',', "$name" , "$login", "$pw");
 
 $new = "$new" . "\n";	
