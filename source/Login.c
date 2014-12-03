@@ -22,8 +22,8 @@ char*  getPW(FILE* acc,char* username){
 		}
 	}	
 	while(!feof(acc)&&strcmp(tempU,username)!=0);
-	return NULL;
-	//return tempP;
+	//return NULL;
+	return tempP;
 }
 int userExist(FILE* acc,char* username){
 
@@ -83,11 +83,16 @@ int main(void){
 	input=malloc(1000);
 	printf("%s%c%c\n","Content-Type:text/html;charset=iso-8859-1",13,10);
 	fgets(input,200,stdin);
+//	printf("%s",input);
 	un=strtok(input,"=");
 	un=strtok(NULL,"=");
+	if(strcmp(un,"&pw")==0){
+		verifyFailure();
+		return 1;
+	}
 	pw=strtok(NULL,"=");
 	un=strtok(un,"&");
-	if(un==NULL||pw==NULL){
+	if(pw==NULL){
 		verifyFailure();
 		return 1;
 	}
