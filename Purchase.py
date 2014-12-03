@@ -17,7 +17,7 @@ def userLoggedIn(name):
 		return False
 	f = open ('source/loggedin.csv')
 	for line in f.readlines():
-		if str(line[:-2]) == name:
+		if str(line[:-1]) == name:
 			f.close()
 			return True
 	f.close()

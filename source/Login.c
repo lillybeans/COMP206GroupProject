@@ -15,16 +15,23 @@ char*  getPW(FILE* acc,char* username){
 	do{
 		fgets(userInfo,200,acc);
 		tempU=strtok(userInfo,",");
+		tempU=strtok(NULL,",");
 		if(strcmp(tempU,username)==0){
 			tempP=strtok(NULL,",");
 			return strtok(tempP,"\n");//need to remove \n from password
 		}
 	}	
 	while(!feof(acc)&&strcmp(tempU,username)!=0);
-	return tempP;
+	return NULL;
+	//return tempP;
 }
+int userExist(FILE* acc,char* username){
+
+}
+
+
 int Verify(char* username, char* password){
-	FILE* accounts=fopen("./source/Members.csv","rt");	
+	FILE* accounts=fopen("./Members.csv","rt");	
 	char* pw;//Do not allow pw over 100 chars
 	char* tempPW=malloc(100);
 	tempPW=getPW(accounts,username);
@@ -33,8 +40,9 @@ int Verify(char* username, char* password){
 		strcpy(pw,tempPW);
 	}
 	else {
-		printf("Your username doesn't exist..");
-		exit(EXIT_FAILURE);//still need error message-username not registered
+		return 1;
+		//printf("Your username doesn't exist..");
+		//exit(EXIT_FAILURE);//still need error message-username not registered
 	}
 	return strcmp(pw,password);
 }
