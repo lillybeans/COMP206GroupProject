@@ -9,8 +9,10 @@ my $file = 'Members.csv';
 
 if ($login eq "") {
 	print "Content-type: text/html\n\n";
+	print "<body background=\"images/background.png\">";
 	print 'username field is empty.';
 	print "please retry <a href=\"register.html\">here</a>.";
+	print "</body>";
 exit;
 }
 
@@ -37,15 +39,19 @@ my $confmpw = $q->param( 'cpw' );
 
 if ($pw eq "" || $confmpw eq "") {
 	print "Content-type: text/html\n\n";
+	print "<body background=\"images/background.png\">";
 	print 'password fields are empty.';
 	print "please retry <a href=\"register.html\">here</a>.";
+	print "</body>";
 exit;
 }
 
 if ($pw ne $confmpw) {
 	print "Content-type: text/html\n\n";
+	print "<body background=\"images/background.png\">";
 	print 'Confirmation password does not match.';
 	print "please retry <a href=\"register.html\">here</a>.";
+	print "</body>";
 exit;
 }
 
@@ -54,8 +60,10 @@ my $name = $q->param( 'fulln' );
 
 if ($name  eq "") {
 	print "Content-type: text/html\n\n";
+	print "<body background=\"images/background.png\">";
 	print 'fullname field is empty.';
 	print "please retry <a href=\"register.html\">here</a>.";
+	print "</body>";
 exit;
 }
 
@@ -68,4 +76,6 @@ print $ADD "$new";
 close(ADD);
 
 	print "Content-type: text/html\n\n";
+	print "<body background=\"images/background.png\">";
 	print "Thank you! Now you can log in at our <a href=\"home.html\">homepage</a>.";
+	print "</body>";
