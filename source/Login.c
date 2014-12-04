@@ -7,44 +7,41 @@
 #include<string.h>
 #include<ctype.h>
 
+void verifySuccess(char* username);
+void verifyFailure();
+
+
 char*  getPW(FILE* acc,char* username){
 //Loop until eof, fgets each time. strtok()to get username,strcmp()
 	char* userInfo=malloc(200);//records the line for a user: username,password 
 	char* tempP=malloc(100);
 	char* tempU=malloc(100);
-	do{
-		fgets(userInfo,200,acc);
-		tempU=strtok(userInfo,",");
-		tempU=strtok(NULL,",");
-		if(strcmp(tempU,username)==0){
-			tempP=strtok(NULL,",");
-			return strtok(tempP,"\n");//need to remove \n from password
+	while(!feof(acc)){
+		fgets(userInfo,200,acc);//retrieve 1 line
+		if(!feof(acc)){
+			tempU=strtok(userInfo,",");
+			tempU=strtok(NULL,",");	//these 2 lines will get the username from the line
+			if(strcmp(tempU,username)==0){
+				tempP=strtok(NULL,",");
+				return strtok(tempP,"\n");//need to remove \n from password
+			}
 		}
-	}	
-	while(!feof(acc)&&strcmp(tempU,username)!=0);
-	//return NULL;
-	return tempP;
+       	}	
+	return NULL;
 }
-int userExist(FILE* acc,char* username){
-
-}
-
 
 int Verify(char* username, char* password){
+//at this point, username and password should both have values
 	FILE* accounts=fopen("./Members.csv","rt");	
-	char* pw;//Do not allow pw over 100 chars
 	char* tempPW=malloc(100);
 	tempPW=getPW(accounts,username);
-	if(tempPW!=NULL){//-the case the username is registered
-		pw=malloc(100);
-		strcpy(pw,tempPW);
+	fclose(accounts);
+	if(tempPW==NULL){//-the case the username is registered
+		return 1;
 	}
 	else {
-		return 1;
-		//printf("Your username doesn't exist..");
-		//exit(EXIT_FAILURE);//still need error message-username not registered
+		return strcmp(tempPW,password);
 	}
-	return strcmp(pw,password);
 }
 void verifySuccess(char* username){
 	FILE* loggedin=fopen("./source/loggedin.csv","a");
@@ -83,7 +80,6 @@ int main(void){
 	input=malloc(1000);
 	printf("%s%c%c\n","Content-Type:text/html;charset=iso-8859-1",13,10);
 	fgets(input,200,stdin);
-//	printf("%s",input);
 	un=strtok(input,"=");
 	un=strtok(NULL,"=");
 	if(strcmp(un,"&pw")==0){
@@ -97,6 +93,7 @@ int main(void){
 		return 1;
 	}
 	int result=Verify(un,pw);	
+
 	if(result==0) verifySuccess(un);
 	else verifyFailure();
 	return 0;
